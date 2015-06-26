@@ -4,6 +4,7 @@ import java.awt.Color;
 
 import org.jcsp.lang.*;
 import org.jcsp.plugNplay.Plex;
+import org.jcsp.util.Buffer;
 
 import leancarbuilder.workstation.*;
 
@@ -11,16 +12,16 @@ public class CarFactory {
 
 	public static void main(String[] args) {
 		StandardChannelFactory channelFactory = StandardChannelFactory.getDefaultInstance();
-		One2OneChannel engineSupply = channelFactory.createOne2One();
-		One2OneChannel coachworksSupply = channelFactory.createOne2One();
-		One2OneChannel wheelSupply = channelFactory.createOne2One();
-		One2OneChannel engines = channelFactory.createOne2One();
-		One2OneChannel coachwork = channelFactory.createOne2One();
-		One2OneChannel wheels = channelFactory.createOne2One();
-		One2OneChannel assemblies = channelFactory.createOne2One();
-		One2OneChannel[] toPaint = channelFactory.createOne2One(3);
-		One2OneChannel[] painted = channelFactory.createOne2One(3);
-		One2OneChannel finished = channelFactory.createOne2One();
+		One2OneChannel engineSupply = channelFactory.createOne2One(new Buffer(10));
+		One2OneChannel coachworksSupply = channelFactory.createOne2One(new Buffer(10));
+		One2OneChannel wheelSupply = channelFactory.createOne2One(new Buffer(40));
+		One2OneChannel engines = channelFactory.createOne2One(new Buffer(3));
+		One2OneChannel coachwork = channelFactory.createOne2One(new Buffer(3));
+		One2OneChannel wheels = channelFactory.createOne2One(new Buffer(3));
+		One2OneChannel assemblies = channelFactory.createOne2One(new Buffer(10));
+		One2OneChannel[] toPaint = channelFactory.createOne2One(new Buffer(3), 3);
+		One2OneChannel[] painted = channelFactory.createOne2One(new Buffer(3), 3);
+		One2OneChannel finished = channelFactory.createOne2One(new Buffer(10));
 		
 		new Parallel
 		(
