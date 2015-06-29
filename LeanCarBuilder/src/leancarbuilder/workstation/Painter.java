@@ -1,18 +1,20 @@
 package leancarbuilder.workstation;
 
-import java.awt.Color;
-
 import org.jcsp.lang.*;
 
 import leancarbuilder.part.*;
 
 public class Painter extends Worker implements CSProcess {
 
+	public final static String RED = "Red";
+	public final static String GREEN = "Green";
+	public final static String BLUE = "Blue";
+
     private ChannelInput input;
     private ChannelOutput output;
-    private Color colour;
+    private String colour;
 
-	public Painter(Color c, ChannelInput in, ChannelOutput out)
+	public Painter(String c, ChannelInput in, ChannelOutput out)
 	{
 		super(15);
 		colour = c;
@@ -25,8 +27,8 @@ public class Painter extends Worker implements CSProcess {
 		while(true) {
 			Car car = (Car) input.read();
 			doWork();
-			car.setColor(colour);
-			//System.out.println("Car Painted "+colour.toString()); 
+			car.setColour(colour);
+			//System.out.println("Car Painted "+colour); 
 			output.write(car);
 		}
 

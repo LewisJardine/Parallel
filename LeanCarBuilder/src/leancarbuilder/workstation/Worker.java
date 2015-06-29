@@ -16,7 +16,7 @@ public class Worker {
     private static final int iterations = 1000;
     private static final int saltLen = 32;
     private static final int desiredKeyLen = 256;
-    private static final String password = "horsebatterystablecorrect";
+    private static final String password = "correcthorsebatterystaple";
     private int effort = 1;
 
 	public Worker(int taskSize) {
